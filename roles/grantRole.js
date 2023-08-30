@@ -24,32 +24,39 @@ const MESS_PROXY_ADDR = config.skale.message_proxy;
 const MSW_ADDR = config.skale.multisig_wallet;
 
 // The address you want to check or assign
-const CHECK_ADDRESS_ROLE = MSW_ADDR;
+const ASSIGN_TO_ADDR = '0x.....';
 // the address of the smart contract
 const GRANT_ROLE_SMART_CONTRACT = config.skale.token_manager;
 
 async function run() {
 
-    await addToWhiteList(true, CHECK_ADDRESS_ROLE);
+    await setupTokenDeployer(ASSIGN_TO_ADDR);
 
-    //  await setDefaultAdminRole(true, GRANT_ROLE_SMART_CONTRACT, CHECK_ADDRESS_ROLE);
+    //  await addToWhiteList(true, ASSIGN_TO_ADDR);
 
-    //  await setRegistrarRole(true, CHECK_ADDRESS_ROLE);
+    //  await setDefaultAdminRole(true, GRANT_ROLE_SMART_CONTRACT, ASSIGN_TO_ADDR);
 
-    //  await setTokenRegisterRole(true, CHECK_ADDRESS_ROLE);
+    //  await setRegistrarRole(true, ASSIGN_TO_ADDR);
 
-    //  await setChainConnectorRole(true, CHECK_ADDRESS_ROLE);
+    //  await setTokenRegisterRole(true, ASSIGN_TO_ADDR);
 
-    //  await setDeployerRole(true, CHECK_ADDRESS_ROLE);
+    //  await setChainConnectorRole(true, ASSIGN_TO_ADDR);
 
-    //  await setDeployerAdminRole(true, CHECK_ADDRESS_ROLE);
+    //  await setDeployerRole(true, ASSIGN_TO_ADDR);
 
-    //  await setMarionette(true, CHECK_ADDRESS_ROLE);
+    //  await setDeployerAdminRole(true, ASSIGN_TO_ADDR);
 
-    //  await setCommunityLocker(true, CHECK_ADDRESS_ROLE);
+    //  await setMarionette(true, ASSIGN_TO_ADDR);
 
-    //  await setMessageProxy(true, CHECK_ADDRESS_ROLE);
+    //  await setCommunityLocker(true, ASSIGN_TO_ADDR);
 
+    //  await setMessageProxy(true, ASSIGN_TO_ADDR);
+
+}
+
+async function setupTokenDeployer(tokenFactoryAddress) {
+    await setTokenRegisterRole(true, tokenFactoryAddress);
+    await setRegistrarRole(true, tokenFactoryAddress);
 }
 
 async function setDefaultAdminRole(grantRole, contractAddress, roleAddr) {
@@ -75,19 +82,13 @@ async function setRegistrarRole(grantRole, roleAddr) {
 
     const contract = new ethers.Contract(TOKEN_LINKER_ADDR, token_linker_abi, accountOrigin);
     const REGISTRAR_ROLE = ethers.utils.id("REGISTRAR_ROLE");
-    const out = ethers.utils.arrayify(REGISTRAR_ROLE);
-
-    console.log("REGISTRAR_ROLE  ", REGISTRAR_ROLE);
-    console.log("REGISTRAR_ROLE  ", out);
 
     let res = await contract.hasRole(ethers.utils.arrayify(REGISTRAR_ROLE), roleAddr);
     if (res) {
         console.log("RegisterAddress already has REGISTRAR_ROLE", res);
         return
     }
-
     console.log("RegisterAddress  REGISTRAR_ROLE", res);
-
     if (grantRole === true) {
         let res = await contract.grantRole(ethers.utils.arrayify(REGISTRAR_ROLE), roleAddr);
         const rec = await res.wait();
@@ -113,11 +114,6 @@ async function setChainConnectorRole(grantRole, roleAddr) {
 async function setTokenRegisterRole(grantRole, roleAddr) {
     const contract = new ethers.Contract(TOKEN_MANAGER_ADDR, token_manager_abi, accountOrigin);
     const TOKEN_REGISTRAR_ROLE = ethers.utils.id("TOKEN_REGISTRAR_ROLE");
-    const out = ethers.utils.arrayify(TOKEN_REGISTRAR_ROLE);
-
-    console.log("TOKEN_REGISTRAR_ROLE ", TOKEN_REGISTRAR_ROLE);
-    console.log("TOKEN_REGISTRAR_ROLE ", out);
-
     let res = await contract.hasRole(ethers.utils.arrayify(TOKEN_REGISTRAR_ROLE), roleAddr);
     if (res) {
         console.log("RegisterAddress already has TOKEN_REGISTRAR_ROLE", res);
