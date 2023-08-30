@@ -1,0 +1,170 @@
+{
+ 
+  "explorer": {
+    "staging_europa": "https://staging-legal-crazy-castor.explorer.staging-v3.skalenodes.com/"
+  },
+  "rpc": {
+    "goerli": "https://eth-goerli.gateway.pokt.network/v1/lb/f0c06ca797ece1fe09dcdf75",
+    "mainnet": "https://eth-mainnet.gateway.pokt.network/v1/lb/f0c06ca797ece1fe09dcdf75",
+    "staging_nebula": "https://staging-v3.skalenodes.com/v1/staging-faint-slimy-achird",
+    "staging_europa": "https://staging-v3.skalenodes.com/v1/staging-legal-crazy-castor",
+    "schain_Europa": "https://mainnet.skalenodes.com/v1/elated-tan-skat",
+    "schain_Brawl": "https://mainnet.skalenodes.com/v1/frayed-decent-antares",
+    "schain_Calypso": "https://mainnet.skalenodes.com/v1/honorable-steel-rasalhague",
+    "schain_CyptoBlades": "https://mainnet.skalenodes.com/v1/affectionate-immediate-pollux",
+    "schain_Razor": "https://mainnet.skalenodes.com/v1/turbulent-unique-scheat",
+    "schain_Nebula": "https://mainnet.skalenodes.com/v1/green-giddy-denebola",
+    "schain_CryptoC": "https://mainnet.skalenodes.com/v1/haunting-devoted-deneb",
+    "schain_Human": "https://mainnet.skalenodes.com/v1/wan-red-ain",
+    "schain_LiveCGI": "https://mainnet.skalenodes.com/v1/adorable-quaint-bellatrix",
+    "doge":"https://rpc.dogechain.dog"
+  },
+  "wss": {
+    "schainEuropa": "wss://mainnet.skalenodes.com/v1/elated-tan-skat"
+  },
+  "skale": {
+    "message_proxy_chain_address": "0xd2AAa00100000000000000000000000000000000",
+    "token_linker": "0xD2aAA00800000000000000000000000000000000",
+    "config_controller": "0xD2002000000000000000000000000000000000D2",
+    "deposit_box_eth": "0x49F583d263e4Ef938b9E09772D3394c71605Df94",
+    "deposit_box_eth_rinkeby": "0x9910cf6ba22915c5afce8b682f7c09d1c001fa59",
+    "deposit_box": "0x8fB1A35bB6fB9c47Fb5065BE5062cB8dC1687669",
+    "deposit_box_rinkeby": "0xb3bf0c62f0924e5C8fdae9815355eA98Fba33C8E",
+    "deposit_box_goerli": "0x2f4b31e661955d41bd6ab5530b117758c26c8159",
+    "community_pool": "0x588801cA36558310D91234aFC2511502282b1621",
+    "community_pool_rinkeby": "0xb2BadB7f28075CB2C8BDBd730204750Db4C03f98",
+    "token_manager": "0xD2aAA00500000000000000000000000000000000",
+    "community_locker": "0xD2aaa00300000000000000000000000000000000",
+    "message_proxy": "0xd2AAa00100000000000000000000000000000000",
+    "multisig_wallet": "0xD244519000000000000000000000000000000000",
+    "marionette": "0xD2c0DeFACe000000000000000000000000000000",
+    "filestorage": "0xD3002000000000000000000000000000000000d3"
+  },
+  "skale_chains": {
+    "staging": {
+      "europa": "staging-legal-crazy-castor",
+      "europa_id": "476158412",
+      "europa_hash": "0x1c6199cc",
+      "calypso": "staging-utter-unripe-menkar",
+      "calypso_id": "344106930"
+    },
+    "mainnet": {
+      "europa": "elated-tan-skat",
+      "europa_id": "2046399126",
+      "brawlChain": "frayed-decent-antares",
+      "brawlChain_id": "391845894",
+      "calypsoHub": "honorable-steel-rasalhague",
+      "calypsoHub_id": "1564830818",
+      "cryptoBlades": "affectionate-immediate-pollux",
+      "cryptoBlades_id": "1026062157",
+      "razor": "turbulent-unique-scheat",
+      "razor_id": "278611351",
+      "nebula": "green-giddy-denebola",
+      "cryptoC": "haunting-devoted-deneb"
+    }
+  },
+  "assets": {
+    "calypso": {
+      "USDP": "",
+      "SKL": "",
+      "RUBY": "0x88b4da9d5044c33ec8919d6e16395e0a50b79aa3",
+      "ETH": "0x59ab97Ee239e02112652587F9Ef86CB6F762983b"
+    },
+    "calypso_test": {
+      "USDP": "0xb4aaedcA53D17e1f7468cb524B734232C2854294",
+      "USDC": "0xa034CA6278D85ACeA5855B95888216af84e5AD70",
+      "DAI": "0x80912593887A0A0e2DA076801F7A5488a6AA4D1a",
+      "RUBY": "0x0BD48B82a1d16483384ddc8E8B9cbF749569284a"
+    },
+    "staging_europa": {
+      "RUBY": "0xf06De9214B1Db39fFE9db2AebFA74E52f1e46e39",
+      "USDP": "0xe0E2cb3A5d6f94a5bc2D00FAa3e64460A9D241E1",
+      "DAI": "0x3595E2f313780cb2f23e197B8e297066fd410d30",
+      "USDC": "0x5d42495D417fcd9ECf42F3EA8a55FcEf44eD9B33",
+      "USDT": "0xa388F9783d8E5B0502548061c3b06bf4300Fc0E1",
+      "ETH": "0xd2aaa00700000000000000000000000000000000",
+      "SKL": "0xbA1E9BA7CDd4815Da6a51586bE56e8643d1bEAb6",
+      "BTC": "0xf5E880E1066DDc90471B9BAE6f183D5344fd289F",
+      "BRAWL": "0x9B17c373CD0D8B69a123b880d69bBc44a15Eb232",
+      "SKILL": "0x49aE5B287AF1c729FdaEcd2BEe471160f3EF273E",
+      "wrap": {
+        "wRUBY": "0x610478e982aDd0d9FABdf34AB41BFC8aD6Fdc28a",
+        "wUSDP": "0xcC5823dd8C6FB4DFF7A2F1e2c9782b253492D8aD",
+        "wDAI": "0x6075f63de307DC2280b7b1b98948885200B03093",
+        "wUSDC": "0x4f250cCE5b8B39caA96D1144b9A32E1c6a9f97b0",
+        "wUSDT": "0xf8179aD86A964f2E856d11Dd7f4a280dCd721Aa3",
+        "wBTC": "0x587A325e675263E919f253Cb5Ce9bC795dF1A1C7",
+        "wETH": "0xa270484784f043e159f74C03B691F80B6F6e3c24",
+        "wSKL": "0x6a679eF80aF3fE01A646F858Ca1e26D58b5430B6"
+      },
+      "pool": {
+        "ruby": "0x3Ca227Fb82e03e1E3e092e43a0D1256Af77C39E0",
+        "eth": "0x79e045A6D4637A4044e70B9d367e7ff2A71dC828",
+        "skl": "0xb65f6603176646F8E951011E5409b0dA1eA5eFA4",
+        "btc": "0x6d838dC4D74acbCb5448641F6Ff9a660cbaa68eE"
+      }
+    },
+    "goerli": {
+      "RUBY": "0xd66641E25E9D36A995682572eaD74E24C11Bb422",
+      "USDP": "0x66259E472f8d09083ecB51D42F9F872A61001426",
+      "DAI": "0x83B38f79cFFB47CF74f7eC8a5F8D7DD69349fBf7",
+      "USDC": "0x85dedAA65D33210E15911Da5E9dc29F5C93a50A9",
+      "USDT": "0xD1E44e3afd6d3F155e7704c67705E3bAC2e491b6",
+      "SKL": "0x493D4442013717189C9963a2e275Ad33bfAFcE11",
+      "WBTC": "0xd80BC0126A38c9F7b915e1B2B9f78280639cadb3"
+    },
+    "europa": {
+      "RUBY": "0x2B4e4899b53E8b7958c4591a6d02f9C0b5c50F8f",
+      "RUBYUSDP": "0xC13F81c54273a50f42B1280426d77F6494Cbcf58",
+      "USDP": "0x73d22d8a2D1f59Bf5Bcf62cA382481a2073FAF58",
+      "DAI": "0xD05C4be5f3be302d376518c9492EC0147Fa5A718",
+      "USDC": "0x5F795bb52dAC3085f578f4877D450e2929D2F13d",
+      "USDT": "0x1c0491E3396AD6a35f061c62387a95d7218FC515",
+      "ETH": "0xD2Aaa00700000000000000000000000000000000",
+      "SKL": "0xE0595a049d02b7674572b0d59cd4880Db60EDC50",
+      "BTC": "0xcb011E86DF014a46F4e3AC3F3cbB114A4EB80870",
+      "BRAWL": "0x28c6ac22aB738BB01FC6CBA75804dC088aae6193",
+      "SKILL": "0xBDDad45160E10C3738785d9dD7F30b4B2a5Eeba8",
+      "EXD": "0xCfEBA92BD362B2F76fC30a89C433DE50a1D62BcA",
+      "wrap": {
+        "wETH": "0xa5274efA35EbeFF47C1510529D9a8812F95F5735",
+        "wDAI": "0x9E7563B0D51F9B6dFB1917F97D29D50804300d28",
+        "wRUBY": "0x31D3EDCfFd62C7350e02045ED39F0FE2D0598A86",
+        "wSKL": "0xD162bB5c75FE99144295b03510bAb2DF99617440",
+        "wUSDC": "0x1c566a47e1baC535Ca616373146e3BE024F88Aa4",
+        "wUSDP": "0x91E87e460b19F7aD35e983b120bD4aAD5446d319",
+        "wUSDT": "0x42dDeBDa2195FaEDAEC1cf24c19B42da1c881feB",
+        "wWBTC": "0x497C476bcABB2F7D50afF99ca3Ae9354451Ff7d0",
+        "wEXD": "0x0B8FAa4373978E36E5F4a6e7041D4f08dD1CAB95"
+      },
+      "pool": {
+        "btc": "0x9Ba6777451F57859da195EfC0fA3714ab79FDBC2"
+      }
+    },
+    "crypto_blades": {
+      "SKILL": "0x5F6E97612482095C0c2C02BC495C0171e61017d7",
+      "SKL": "0x9FeF16c2Fe0dCB261cfD39e0B618c69A73feB3FE"
+    },
+    "block_brawlers": {
+      "BRAWL": "0xE0A107a0010930Ac218ED0a50937b50D5633EB3e"
+    },
+    "mainnet": {
+      "RUBY": "0x918D8F3670c67f14Ff3fEB025D46B9C165d12a23",
+      "USDP": "0x8E870D67F660D95d5be530380D0eC0bd388289E1",
+      "DAI": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "USDC": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "USDT": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      "SKL": "0x00c83aeCC790e8a4453e5dD3B0B4b3680501a7A7",
+      "BTC": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+      "LINK": "0x514910771AF9Ca656af840dff83E8264EcF986CA"
+    },
+    "rinkeby": {
+      "USDC": "0x7A7610750Dd0eA5c0247f46966355a5248fb3335",
+      "USDT": "0xB411F8A06CED3448916B796C0AE964b5324Dbf62",
+      "DAI": "0xa57bd5805f66B4BdE50DFbf2ddAc0269CBf3301e",
+      "USDP": "0x731860C67C0a98Ef42eD8ed2a8D2e2bCAE9b7229",
+      "RUBY": "0x2D76E3E55bB9E573af26043fb0c76cbbfAC95a2c",
+      "BTC": "0x0Ac932FB9dB133DFf4ABB099d25E194d3ca90CB7"
+    }
+  }
+}

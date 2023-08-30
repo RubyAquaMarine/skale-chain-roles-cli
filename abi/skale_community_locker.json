@@ -1,0 +1,581 @@
+[
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "ActivateUser",
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "schainHash",
+                "indexed": false
+            },
+            {
+                "type": "address",
+                "name": "user",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "ConstantUpdated",
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "constantHash",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "previousValue",
+                "indexed": false
+            },
+            {
+                "type": "uint256",
+                "name": "newValue",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "LockUser",
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "schainHash",
+                "indexed": false
+            },
+            {
+                "type": "address",
+                "name": "user",
+                "indexed": false
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "RoleAdminChanged",
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "role",
+                "indexed": true
+            },
+            {
+                "type": "bytes32",
+                "name": "previousAdminRole",
+                "indexed": true
+            },
+            {
+                "type": "bytes32",
+                "name": "newAdminRole",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "RoleGranted",
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "role",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "account",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "sender",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "event",
+        "anonymous": false,
+        "name": "RoleRevoked",
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "role",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "account",
+                "indexed": true
+            },
+            {
+                "type": "address",
+                "name": "sender",
+                "indexed": true
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "CONSTANT_SETTER_ROLE",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "bytes32",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "DEFAULT_ADMIN_ROLE",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "bytes32",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "MAINNET_HASH",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "bytes32",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "MAINNET_NAME",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "string",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "activeUsers",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": ""
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "checkAllowedToSendMessage",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": "receiver"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "communityPool",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "gasPriceTimestamp",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getRoleAdmin",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "role"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bytes32",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getRoleMember",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "role"
+            },
+            {
+                "type": "uint256",
+                "name": "index"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "address",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "getRoleMemberCount",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "role"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "grantRole",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "role"
+            },
+            {
+                "type": "address",
+                "name": "account"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "hasRole",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "role"
+            },
+            {
+                "type": "address",
+                "name": "account"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "initialize",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "string",
+                "name": "newSchainName"
+            },
+            {
+                "type": "address",
+                "name": "newMessageProxy"
+            },
+            {
+                "type": "address",
+                "name": "newTokenManagerLinker"
+            },
+            {
+                "type": "address",
+                "name": "newCommunityPool"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "lastMessageTimeStamp",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "address",
+                "name": ""
+            }
+        ],
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "mainnetGasPrice",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "messageProxy",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "postMessage",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "fromChainHash"
+            },
+            {
+                "type": "address",
+                "name": "sender"
+            },
+            {
+                "type": "bytes",
+                "name": "data"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "renounceRole",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "role"
+            },
+            {
+                "type": "address",
+                "name": "account"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "revokeRole",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bytes32",
+                "name": "role"
+            },
+            {
+                "type": "address",
+                "name": "account"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "schainHash",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "bytes32",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "setGasPrice",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "uint256",
+                "name": "gasPrice"
+            },
+            {
+                "type": "uint256",
+                "name": "timestamp"
+            },
+            {
+                "type": "tuple",
+                "components": [
+                    {
+                        "type": "uint256[2]",
+                        "name": "blsSignature"
+                    },
+                    {
+                        "type": "uint256",
+                        "name": "hashA"
+                    },
+                    {
+                        "type": "uint256",
+                        "name": "hashB"
+                    },
+                    {
+                        "type": "uint256",
+                        "name": "counter"
+                    }
+                ],
+                "name": ""
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "setTimeLimitPerMessage",
+        "constant": false,
+        "payable": false,
+        "inputs": [
+            {
+                "type": "uint256",
+                "name": "newTimeLimitPerMessage"
+            }
+        ],
+        "outputs": []
+    },
+    {
+        "type": "function",
+        "name": "supportsInterface",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [
+            {
+                "type": "bytes4",
+                "name": "interfaceId"
+            }
+        ],
+        "outputs": [
+            {
+                "type": "bool",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "timeLimitPerMessage",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "uint256",
+                "name": ""
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "tokenManagerLinker",
+        "constant": true,
+        "stateMutability": "view",
+        "payable": false,
+        "inputs": [],
+        "outputs": [
+            {
+                "type": "address",
+                "name": ""
+            }
+        ]
+    }
+]
