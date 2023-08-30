@@ -21,13 +21,16 @@ const CONFIG_CONTROLLER_ADDR = config.skale.config_controller;
 const COMM_LOCKER_ADDR = config.skale.community_locker;
 const MARIONETTE_ADDR = config.skale.marionette;
 const MESS_PROXY_ADDR = config.skale.message_proxy;
+const MSW_ADDR = config.skale.multisig_wallet;
 
 // The address you want to check or assign
-const CHECK_ADDRESS_ROLE = '0xD244519000000000000000000000000000000000';
+const CHECK_ADDRESS_ROLE = MSW_ADDR;
 // the address of the smart contract
 const GRANT_ROLE_SMART_CONTRACT = config.skale.token_manager;
 
 async function run() {
+
+    await addToWhiteList(true, CHECK_ADDRESS_ROLE);
 
     //  await setDefaultAdminRole(true, GRANT_ROLE_SMART_CONTRACT, CHECK_ADDRESS_ROLE);
 
@@ -141,6 +144,21 @@ async function setDeployerAdminRole(grantRole, roleAddr) {
     console.log("RegisterAddress  DEPLOYER_ADMIN_ROLE", res);
     if (grantRole === true) {
         res = await contract.grantRole(ethers.utils.arrayify(DEPLOYER_ADMIN_ROLE), roleAddr);
+        const rec = await res.wait();
+        console.log("receipt: ", rec);
+    }
+}
+
+async function addToWhiteList(grantRole, roleAddr) {
+    const contract = new ethers.Contract(CONFIG_CONTROLLER_ADDR, config_controller_abi, accountOrigin);
+    let res = await contract.isAddressWhitelisted(roleAddr);
+    if (res) {
+        console.log("RegisterAddress already has been whitelisted", res);
+        return
+    }
+    console.log("RegisterAddress  Whitelisted", res);
+    if (grantRole === true) {
+        res = await contract.addToWhitelist(roleAddr);
         const rec = await res.wait();
         console.log("receipt: ", rec);
     }
