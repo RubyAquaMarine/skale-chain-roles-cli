@@ -21,6 +21,7 @@ const CONFIG_CONTROLLER_ADDR = config.skale.config_controller;
 const COMM_LOCKER_ADDR = config.skale.community_locker;
 const MARIONETTE_ADDR = config.skale.marionette;
 const MESS_PROXY_ADDR = config.skale.message_proxy;
+const MSW_ADDR = config.skale.multisig_wallet;
 
 
 // The address you want to check or assign
