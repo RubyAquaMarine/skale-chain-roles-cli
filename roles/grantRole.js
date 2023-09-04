@@ -24,13 +24,13 @@ const MESS_PROXY_ADDR = config.skale.message_proxy;
 const MSW_ADDR = config.skale.multisig_wallet;
 
 // The address you want to check or assign
-const ASSIGN_TO_ADDR = '0x.....';
+const ASSIGN_TO_ADDR = MSW_ADDR;
 // the address of the smart contract
 const GRANT_ROLE_SMART_CONTRACT = config.skale.token_manager;
 
 async function run() {
 
-    await setupTokenDeployer(ASSIGN_TO_ADDR);
+    // await setupTokenDeployer(ASSIGN_TO_ADDR);
 
     //  await addToWhiteList(true, ASSIGN_TO_ADDR);
 

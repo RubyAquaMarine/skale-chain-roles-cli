@@ -24,7 +24,7 @@ const MESS_PROXY_ADDR = config.skale.message_proxy;
 
 
 // The address you want to check or assign
-const CHECK_ADDRESS_ROLE = '0xfD6D3ab833f312B3CE7344D234832574Ad94B8e8';
+const CHECK_ADDRESS_ROLE = MSW_ADDR;
 // the address of the smart contract
 const GRANT_ROLE_SMART_CONTRACT = config.skale.token_manager;
 
@@ -84,7 +84,7 @@ async function setRegistrarRole(grantRole, roleAddr) {
         console.log("receipt: ", rec);
     }
 }
-
+// CHAIN_CONNECTOR_ROLE | TokenManagerLinker | to connect a new schain to Europa | 
 async function setChainConnectorRole(grantRole, roleAddr) {
     const contract = new ethers.Contract(TOKEN_LINKER_ADDR, token_linker_abi, accountOrigin);
     const CHAIN_CONNECTOR_ROLE = ethers.utils.id("CHAIN_CONNECTOR_ROLE");
