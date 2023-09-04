@@ -10,7 +10,7 @@ const mess_proxy_abi = require('../abi/skale_message_proxy.json');
 const config = require('../setConfig.json');
 const credentials = require('../keys.json');
 //--------------------------------------ADJUST-----------------------------------||
-const providerOrigin = new ethers.providers.JsonRpcProvider(config.rpc.staging_europa); // SKALE CHAIN
+const providerOrigin = new ethers.providers.JsonRpcProvider(config.rpc.schain_Europa); // SKALE CHAIN
 const walletOrigin = new ethers.Wallet(credentials.account.privateKeyAdmin);
 //--------------------------------------ADJUST-----------------------------------||
 
@@ -24,7 +24,7 @@ const MESS_PROXY_ADDR = config.skale.message_proxy;
 
 
 // The address you want to check or assign
-const CHECK_ADDRESS_ROLE = '0xD244519000000000000000000000000000000000';
+const CHECK_ADDRESS_ROLE = '0xfD6D3ab833f312B3CE7344D234832574Ad94B8e8';
 // the address of the smart contract
 const GRANT_ROLE_SMART_CONTRACT = config.skale.token_manager;
 
