@@ -16,7 +16,7 @@ make keys.json
 
 # Run
 
-- set ```rpc``` and ```privateKey``` within any script
+- set ```rconfig.rpc.staging_europa``` and ```credentials.account.privateKey``` within any script
 - run any script from ```/roles``` 
 
 ```shell
@@ -45,7 +45,7 @@ The purpose of the `Token-Deployer` is to simplify the process of onboarding L1 
 
 Below you will see the common transaction flow using GnosisSafe MSW to assign roles on L1(left image) and L2(bottom image) while interacting on Ethereum. 
 
-The proposed flow-chart (top image) will only the Skale-Network for token deployments and token mapping. 
+The proposed flow-chart (top image) will only use the Skale-Network for token deployments and token mapping. 
 - `IMA Schain` needs to communicate with `IMA Mainnet.depositBoxERC20`
 
 
