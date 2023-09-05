@@ -10,8 +10,8 @@ const mess_proxy_abi = require('../abi/skale_message_proxy.json');
 const config = require('../setConfig.json');
 const credentials = require('../keys.json');
 //--------------------------------------ADJUST-----------------------------------||
-const providerOrigin = new ethers.providers.JsonRpcProvider(config.rpc.staging_europa); // SKALE CHAIN
-const walletOrigin = new ethers.Wallet(credentials.account.privateKeyAdmin);
+const providerOrigin = new ethers.providers.JsonRpcProvider(config.rpc.schain_Europa); // SKALE CHAIN
+const walletOrigin = new ethers.Wallet(credentials.account.privateKeyEuropa);
 //--------------------------------------ADJUST-----------------------------------||
 
 const accountOrigin = walletOrigin.connect(providerOrigin);
@@ -24,13 +24,13 @@ const MESS_PROXY_ADDR = config.skale.message_proxy;
 const MSW_ADDR = config.skale.multisig_wallet;
 
 // The address you want to check or assign
-const ASSIGN_TO_ADDR = MSW_ADDR;
+const ASSIGN_TO_ADDR = '0xd7Bf7C81383493fecED8B5b4338A5F4cE584A09b';
 // the address of the smart contract
 const GRANT_ROLE_SMART_CONTRACT = config.skale.token_manager;
 
 async function run() {
 
-    // await setupTokenDeployer(ASSIGN_TO_ADDR);
+     await setupTokenDeployer(ASSIGN_TO_ADDR);
 
     //  await addToWhiteList(true, ASSIGN_TO_ADDR);
 
