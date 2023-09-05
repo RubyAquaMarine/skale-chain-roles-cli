@@ -1,10 +1,8 @@
-# Skale Roles
-I recommend giving `DEFAULT_ADMIN_ROLE` to a secure private key for the following skale-predeployed-contracts using the predeployed Skale MSW. After that, you can easily grant roles to other developers or newly deployed smart contract such as the [Token-Deployer](https://github.com/RubyAquaMarine/skale-token-deployer)
-- TokenManager, TokenLinker, ConfigController, 
+# Requirements
+This CLI tool must use a pKey that has `DEFAULT_ADMIN_ROLE`  on 
+- TokenManager, TokenLinker, ConfigController
 
-
-# Scripts
-make keys.json
+- make keys.json
 ```javascript
 {
     "account": {
@@ -14,10 +12,10 @@ make keys.json
 }
 ```
 
-# Run
+## Run scripts
 
-- set ```rconfig.rpc.staging_europa``` and ```credentials.account.privateKey``` within any script
-- run any script from ```/roles``` 
+- set ```config.rpc.staging_europa``` and ```credentials.account.privateKey``` within any script
+- run any script from ```/scripts``` 
 
 ```shell
 npm install
@@ -27,10 +25,26 @@ npm run check
 ```
 
  within  `/roles/`, change the `CHECK_ADDRESS_ROLE` to any address that you would like to check the `currently assigned roles`, or an address that you would like to `assign new roles` to. 
+ 
+ Reminder: pKey must have `DEFAULT_ADMIN_ROLE` to assign a new address any roles. 
+
+ ## Run cli
+ - set ```config.rpc.staging_europa``` and ```credentials.account.privateKey``` within any script
+```shell
+clone repo 
+sudo npm install -g
+roles-check --address=0xD244519000000000000000000000000000000000
+roles-grant --address=0xD244519000000000000000000000000000000000
+
+```
+
+within  `/cli/grantRole.js`, uncomment the functions that you wish to use. 
+
+Reminder: pKey must have `DEFAULT_ADMIN_ROLE` to assign a new address any roles. 
 
 
-## Node and NPM verions
-node: v18.12.1
+### Node and NPM verions
+node: v16.19.0
 npm: 8.19.2
 
 # Skale-Chain-UI
@@ -50,3 +64,4 @@ The proposed flow-chart (top image) will only use the Skale-Network for token de
 
 
 ![ima](./img/IMA.png)
+
