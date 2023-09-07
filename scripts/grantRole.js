@@ -11,7 +11,7 @@ const config = require('../setConfig.json');
 const credentials = require('../keys.json');
 //--------------------------------------ADJUST-----------------------------------||
 const providerOrigin = new ethers.providers.JsonRpcProvider(config.rpc.schain_Europa); // SKALE CHAIN
-const walletOrigin = new ethers.Wallet(credentials.account.privateKeyEuropa);
+const walletOrigin = new ethers.Wallet(credentials.account.privateKey);
 //--------------------------------------ADJUST-----------------------------------||
 
 const accountOrigin = walletOrigin.connect(providerOrigin);

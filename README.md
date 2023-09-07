@@ -7,7 +7,6 @@ This CLI tool must use a pKey that has `DEFAULT_ADMIN_ROLE`  on
 {
     "account": {
       "privateKey": "c7d02615d6a7391257a-",
-      "privateKeyAdmin": "c7d02615d6a7391-"
     }
 }
 ```
@@ -31,7 +30,7 @@ npm run check
  ## Run cli
  - set ```config.rpc.staging_europa``` and ```credentials.account.privateKey``` within any script
 ```shell
-clone repo 
+npm install
 sudo npm install -g
 roles-check --address=0xD244519000000000000000000000000000000000
 roles-grant --address=0xD244519000000000000000000000000000000000

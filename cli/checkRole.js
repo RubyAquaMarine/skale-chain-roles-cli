@@ -17,7 +17,7 @@ const config = require('../setConfig.json');
 const credentials = require('../keys.json');
 //--------------------------------------ADJUST-----------------------------------||
 const providerOrigin = new ethers.providers.JsonRpcProvider(config.rpc.schain_Europa); // SKALE CHAIN
-const walletOrigin = new ethers.Wallet(credentials.account.privateKeyAdmin);
+const walletOrigin = new ethers.Wallet(credentials.account.privateKey);
 //--------------------------------------ADJUST-----------------------------------||
 
 const accountOrigin = walletOrigin.connect(providerOrigin);
@@ -34,10 +34,8 @@ const MSW_ADDR = config.skale.multisig_wallet;
 const GRANT_ROLE_SMART_CONTRACT = config.skale.token_manager;
 
 
+
 async function CheckRoles(CHECK_ADDRESS_ROLE) {
-
-
-    await setDefaultAdminRole(GRANT_ROLE_SMART_CONTRACT, CHECK_ADDRESS_ROLE);
 
     await setRegistrarRole(CHECK_ADDRESS_ROLE);
 
@@ -57,20 +55,10 @@ async function CheckRoles(CHECK_ADDRESS_ROLE) {
 
 }
 
-async function setDefaultAdminRole(contractAddress, roleAddr) {
-    const contract = new ethers.Contract(contractAddress, token_linker_abi, accountOrigin);
-    // DEFAULT_ADMIN_ROLE
-    const out = ethers.utils.arrayify('0x0000000000000000000000000000000000000000000000000000000000000000');
-    let res = await contract.hasRole(out, roleAddr);
-    if (res) {
-        console.log("RegisterAddress already has DEFAULT_ADMIN_ROLE", res);
-        return
-    }
-    console.log("RegisterAddress  DEFAULT_ADMIN_ROLE", res);
 
-}
 
 async function setRegistrarRole(roleAddr) {
+    await checkDefaultAdminRole("TokenLinker", TOKEN_LINKER_ADDR, roleAddr);
     const contract = new ethers.Contract(TOKEN_LINKER_ADDR, token_linker_abi, accountOrigin);
     const REGISTRAR_ROLE = ethers.utils.id("REGISTRAR_ROLE");
     const out = ethers.utils.arrayify(REGISTRAR_ROLE);
@@ -81,20 +69,24 @@ async function setRegistrarRole(roleAddr) {
     }
     console.log("RegisterAddress  REGISTRAR_ROLE", res);
 
+
+
 }
 // CHAIN_CONNECTOR_ROLE | TokenManagerLinker | to connect a new schain to Europa | 
 async function setChainConnectorRole(roleAddr) {
+    await checkDefaultAdminRole("TokenLinker", TOKEN_LINKER_ADDR, roleAddr);
     const contract = new ethers.Contract(TOKEN_LINKER_ADDR, token_linker_abi, accountOrigin);
     const CHAIN_CONNECTOR_ROLE = ethers.utils.id("CHAIN_CONNECTOR_ROLE");
     let res = await contract.hasRole(ethers.utils.arrayify(CHAIN_CONNECTOR_ROLE), roleAddr);
     if (res) {
-        console.log("RegisterAddressalready has CHAIN_CONNECTOR_ROLE", res);
+        console.log("RegisterAddress already has CHAIN_CONNECTOR_ROLE", res);
         return
     }
     console.log("RegisterAddress  CHAIN_CONNECTOR_ROLE", res);
 
 }
 async function setTokenRegisterRole(roleAddr) {
+    await checkDefaultAdminRole("TokenManager: ", TOKEN_MANAGER_ADDR, roleAddr);
     const contract = new ethers.Contract(TOKEN_MANAGER_ADDR, token_manager_abi, accountOrigin);
     const TOKEN_REGISTRAR_ROLE = ethers.utils.id("TOKEN_REGISTRAR_ROLE");
     let res = await contract.hasRole(ethers.utils.arrayify(TOKEN_REGISTRAR_ROLE), roleAddr);
@@ -103,10 +95,13 @@ async function setTokenRegisterRole(roleAddr) {
         return
     }
     console.log("RegisterAddress  TOKEN_REGISTRAR_ROLE", res);
+
+
 }
 
 
 async function setDeployerAdminRole(roleAddr) {
+    await checkDefaultAdminRole("ConfigController: ", CONFIG_CONTROLLER_ADDR, roleAddr);
     const contract = new ethers.Contract(CONFIG_CONTROLLER_ADDR, config_controller_abi, accountOrigin);
     const DEPLOYER_ADMIN_ROLE = ethers.utils.id("DEPLOYER_ADMIN_ROLE");
     let res = await contract.hasRole(ethers.utils.arrayify(DEPLOYER_ADMIN_ROLE), roleAddr);
@@ -115,6 +110,9 @@ async function setDeployerAdminRole(roleAddr) {
         return
     }
     console.log("RegisterAddress  DEPLOYER_ADMIN_ROLE", res);
+
+
+
 }
 
 /*
@@ -122,6 +120,7 @@ DEPLOYER_ROLE
 whitelisting other 3rd party contracts
 */
 async function setDeployerRole(roleAddr) {
+    await checkDefaultAdminRole("ConfigController: ", CONFIG_CONTROLLER_ADDR, roleAddr);
     const contract = new ethers.Contract(CONFIG_CONTROLLER_ADDR, config_controller_abi, accountOrigin);
     const DEPLOYER_ROLE = ethers.utils.id("DEPLOYER_ROLE");
     let res = await contract.hasRole(ethers.utils.arrayify(DEPLOYER_ROLE), roleAddr);
@@ -130,6 +129,8 @@ async function setDeployerRole(roleAddr) {
         return
     }
     console.log("RegisterAddress  DEPLOYER_ROLE", res);
+
+
 
 }
 
@@ -157,6 +158,20 @@ async function setCommunityLocker(roleAddr) {
         return
     }
     console.log("RegisterAddress  CONSTANT_SETTER_ROLE", res);
+
+}
+
+async function checkDefaultAdminRole(contractName, contractAddress, roleAddr) {
+    console.log("RegisterAddress  check DEFAULT_ADMIN_ROLE on contract ", contractName);
+    const contract = new ethers.Contract(contractAddress, token_linker_abi, accountOrigin);
+    // DEFAULT_ADMIN_ROLE
+    const out = ethers.utils.arrayify('0x0000000000000000000000000000000000000000000000000000000000000000');
+    let res = await contract.hasRole(out, roleAddr);
+    if (res) {
+        console.log("RegisterAddress already has DEFAULT_ADMIN_ROLE", res);
+        return
+    }
+    console.log("RegisterAddress  DEFAULT_ADMIN_ROLE", res);
 
 }
 

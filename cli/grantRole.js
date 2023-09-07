@@ -12,7 +12,7 @@ const config = require('../setConfig.json');
 const credentials = require('../keys.json');
 //--------------------------------------ADJUST-----------------------------------||
 const providerOrigin = new ethers.providers.JsonRpcProvider(config.rpc.schain_Europa); // SKALE CHAIN
-const walletOrigin = new ethers.Wallet(credentials.account.privateKeyEuropa);
+const walletOrigin = new ethers.Wallet(credentials.account.privateKey);
 //--------------------------------------ADJUST-----------------------------------||
 
 const accountOrigin = walletOrigin.connect(providerOrigin);
@@ -30,7 +30,9 @@ async function GrantRole(ASSIGN_TO_ADDR) {
 
     //   await setDefaultAdminRole(true, GRANT_ROLE_SMART_CONTRACT, ASSIGN_TO_ADDR);
 
-    //  await addToWhiteList(true, ENABALE_DEFAULT_ADMIN, ASSIGN_TO_ADDR);
+    // await setDeployerAdminRole(true, ENABALE_DEFAULT_ADMIN, ASSIGN_TO_ADDR);
+
+    await addToWhiteList(true, ENABALE_DEFAULT_ADMIN, ASSIGN_TO_ADDR);// must have DeployerAdminRole before running this function
 
     //   await setRegistrarRole(true, ENABALE_DEFAULT_ADMIN, ASSIGN_TO_ADDR);
 
@@ -39,8 +41,6 @@ async function GrantRole(ASSIGN_TO_ADDR) {
     //   await setChainConnectorRole(true, ENABALE_DEFAULT_ADMIN, ASSIGN_TO_ADDR);
 
     //  await setDeployerRole(true, ENABALE_DEFAULT_ADMIN, ASSIGN_TO_ADDR);
-
-    //   await setDeployerAdminRole(true, ENABALE_DEFAULT_ADMIN, ASSIGN_TO_ADDR);
 
     // await setupTokenDeployer(ASSIGN_TO_ADDR);
 
@@ -181,6 +181,12 @@ async function addToWhiteList(grantRole, grantDefaultAdminRole, roleAddr) {
     if (grantDefaultAdminRole) {
         await setDefaultAdminRoles(contract, roleAddr)
     }
+
+    // check DEPLOYER_ADMIN_ROLE
+    console.log("privateKey must have DEPLOYER_ADMIN_ROLE on CONFIG_CONTROLLER_ADDR before whitelisting new deployer_roles ")
+
+
+
     let res = await contract.isAddressWhitelisted(roleAddr);
     if (res) {
         console.log("RegisterAddress already has been whitelisted", res);
@@ -188,7 +194,7 @@ async function addToWhiteList(grantRole, grantDefaultAdminRole, roleAddr) {
     }
     console.log("RegisterAddress  Whitelisted", res);
     if (grantRole === true) {
-        res = await contract.addToWhitelist(roleAddr);
+        res = await contract.addToWhitelist(roleAddr, { gasLimit: 10000000 });
         const rec = await res.wait();
         console.log("receipt: ", rec);
     }
